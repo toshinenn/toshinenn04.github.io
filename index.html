@@ -40,9 +40,10 @@ body {
 /* COVER */
 .cover {
     height: 100vh;
-    background: url('Cover page.jpg') no-repeat center;
-    background-size: contain;   /* shows full image */
-    background-color: black;    /* fills empty space */
+    background-image: url('Cover page.jpg'); /* 👈 change if needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,6 +56,45 @@ body {
     border-radius: 20px;
     text-align: center;
     color: gold;
+}
+
+    .card {
+    background: rgba(0,0,0,0.6);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    color: gold;
+}
+
+/* 👇 PASTE HERE */
+.food-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.food-card {
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255,215,0,0.2);
+}
+
+.food-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.food-card p {
+    margin-top: 10px;
+    color: gold;
+    font-size: 1.1em;
 }
 
 /* SECTIONS */
@@ -101,10 +141,10 @@ iframe {
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('program')">Program</button>
-    <button onclick="showSection('food')">Food</button>
-    <button onclick="showSection('location')">Location</button>
+    <button onclick="showSection('Okamani Chitti')">Okamani Chatti</button>
+    <button onclick="showSection('Program')">Program</button>
+    <button onclick="showSection('Food')">Food</button>
+    <button onclick="showSection('Location')">Location</button>
 </div>
 
 <!-- HOME -->
@@ -126,14 +166,42 @@ iframe {
 </div>
 
 <!-- FOOD -->
-<div id="food" class="section">
+<div class="section" id="food">
     <h2>🍽 Food</h2>
-    <img src="Do'o Kappa.jpg">
-    <img src="Wak Tangsek Pura.jpg">
-    <img src="Gominda Wak.jpg">
-    <img src="Do'chi Rita.jpg">
-    <img src="Dal.jpg">
-    <img src="Mi.jpg">
+
+    <div class="food-container">
+
+        <div class="food-card">
+            <img src="doo_kappa.jpg">
+            <p>Do'o Kappa</p>
+        </div>
+
+        <div class="food-card">
+            <img src="wak_tangsek_pura.jpg">
+            <p>Wak Tangsek Pura</p>
+        </div>
+
+        <div class="food-card">
+            <img src="gominda_wak.jpg">
+            <p>Gominda Wak</p>
+        </div>
+
+        <div class="food-card">
+            <img src="dochi_rita.jpg">
+            <p>Do'chi Rita</p>
+        </div>
+
+        <div class="food-card">
+            <img src="dal.jpg">
+            <p>Dal</p>
+        </div>
+
+        <div class="food-card">
+            <img src="mi.jpg">
+            <p>Mi</p>
+        </div>
+
+    </div>
 </div>
 
 <!-- LOCATION -->
