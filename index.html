@@ -13,7 +13,6 @@
     font-family: Arial;
 }
 
-/* BODY */
 body {
     background: #121212;
     color: #e0e0e0;
@@ -36,7 +35,7 @@ body {
     background: #2a2a2a;
     color: #e0e0e0;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
 }
 
@@ -50,6 +49,7 @@ body {
     height: 100vh;
     padding-top: 70px;
     text-align: center;
+    overflow-y: auto;
 }
 
 .active {
@@ -58,7 +58,7 @@ body {
 
 /* COVER */
 .cover {
-    height: 100%;
+    height: calc(100vh - 70px);
     background: url('cover.jpg') no-repeat center;
     background-size: contain;
     background-color: black;
@@ -69,26 +69,35 @@ body {
 
 /* CARD */
 .card {
-    background: rgba(40, 40, 40, 0.7);
+    background: rgba(40, 40, 40, 0.75);
     padding: 25px;
     border-radius: 15px;
     color: #e0e0e0;
 }
 
-/* HEADINGS */
+/* FORCE GREY HEADINGS */
+h1, h2, h3 {
+    color: #d1d1d1 !important;
+}
+
 h2 {
-    color: #d1d1d1;
     margin-bottom: 15px;
+}
+
+/* PROGRAM */
+#program p {
+    margin: 12px;
+    font-size: 18px;
 }
 
 /* FOOD */
 .food-container {
-    height: calc(100vh - 140px);
-    overflow-y: auto;
+    min-height: calc(100vh - 140px);
+    padding-bottom: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 22px;
     margin-top: 20px;
 }
 
@@ -97,7 +106,7 @@ h2 {
     padding: 15px;
     border-radius: 15px;
     width: 80%;
-    max-width: 300px;
+    max-width: 320px;
 }
 
 .food-card img {
@@ -110,6 +119,7 @@ h2 {
 .food-card p {
     margin-top: 10px;
     color: #cccccc;
+    font-size: 17px;
 }
 
 /* MAP */
@@ -119,12 +129,17 @@ iframe {
     border: none;
     border-radius: 10px;
 }
+
+.location-text {
+    margin-top: 15px;
+    color: #cccccc;
+    padding: 0 20px;
+}
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
     <button onclick="showSection('home')">Okamani Chitti</button>
     <button onclick="showSection('program')">Program</button>
@@ -132,7 +147,6 @@ iframe {
     <button onclick="showSection('location')">Location</button>
 </div>
 
-<!-- HOME -->
 <div id="home" class="section active">
     <div class="cover">
         <div class="card">
@@ -142,7 +156,6 @@ iframe {
     </div>
 </div>
 
-<!-- PROGRAM -->
 <div id="program" class="section">
     <h2>🎤 Program</h2>
     <p>Opening Speech</p>
@@ -150,12 +163,10 @@ iframe {
     <p>Music</p>
 </div>
 
-<!-- FOOD -->
 <div id="food" class="section">
     <h2>🍽 Food Items</h2>
 
     <div class="food-container">
-
         <div class="food-card">
             <img src="doo_kappa.jpg">
             <p>Do'o Kappa</p>
@@ -185,20 +196,22 @@ iframe {
             <img src="mi.jpg">
             <p>Mi</p>
         </div>
-
     </div>
 </div>
 
-<!-- LOCATION -->
 <div id="location" class="section">
     <h2>📍 Location</h2>
+
     <a href="https://maps.google.com/?q=Hotel+Nexotica+Banquet+Hall+Azara+Guwahati" target="_blank">
         <iframe src="https://maps.google.com/maps?q=Hotel+Nexotica+Banquet+Hall+Azara+Guwahati&output=embed"></iframe>
     </a>
+
+    <p class="location-text">
+        Hotel Nexotica, Banquet Hall, Azara, Opp. Mountain Shadow, Guwahati - 781017
+    </p>
 </div>
 
 <script>
-// SECTION SWITCH
 function showSection(id) {
     let sections = document.querySelectorAll(".section");
 
@@ -209,7 +222,6 @@ function showSection(id) {
     document.getElementById(id).classList.add("active");
 }
 
-// COUNTDOWN
 var countDate = new Date("May 1, 2026 16:00:00").getTime();
 
 setInterval(function() {
