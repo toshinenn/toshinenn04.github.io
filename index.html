@@ -13,42 +13,42 @@
     font-family: Arial;
 }
 
+/* BODY */
 body {
-    background: #111;
-    color: white;
+    background: #121212;
+    color: #e0e0e0;
     overflow: hidden;
-}
-    
-.section {
-    display: none;
-}
-
-.active {
-    display: block;
 }
 
 /* NAVBAR */
 .navbar {
     position: fixed;
     width: 100%;
-    background: black;
+    background: #1a1a1a;
     padding: 10px;
     text-align: center;
+    z-index: 1000;
 }
 
 .navbar button {
     margin: 5px;
-    padding: 10px;
-    background: gold;
+    padding: 10px 15px;
+    background: #2a2a2a;
+    color: #e0e0e0;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+}
+
+.navbar button:hover {
+    background: #444;
 }
 
 /* SECTIONS */
 .section {
     display: none;
     height: 100vh;
-    padding-top: 60px;
+    padding-top: 70px;
     text-align: center;
 }
 
@@ -60,7 +60,7 @@ body {
 .cover {
     height: 100%;
     background: url('cover.jpg') no-repeat center;
-    background-size: contain; /* shows full image */
+    background-size: contain;
     background-color: black;
     display: flex;
     justify-content: center;
@@ -69,14 +69,22 @@ body {
 
 /* CARD */
 .card {
-    background: rgba(0,0,0,0.6);
+    background: rgba(40, 40, 40, 0.7);
     padding: 25px;
     border-radius: 15px;
-    color: gold;
+    color: #e0e0e0;
+}
+
+/* HEADINGS */
+h2 {
+    color: #d1d1d1;
+    margin-bottom: 15px;
 }
 
 /* FOOD */
 .food-container {
+    height: calc(100vh - 140px);
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,7 +93,7 @@ body {
 }
 
 .food-card {
-    background: #1a1a1a;
+    background: #1f1f1f;
     padding: 15px;
     border-radius: 15px;
     width: 80%;
@@ -101,7 +109,7 @@ body {
 
 .food-card p {
     margin-top: 10px;
-    color: gold;
+    color: #cccccc;
 }
 
 /* MAP */
@@ -136,15 +144,19 @@ iframe {
 
 <!-- PROGRAM -->
 <div id="program" class="section">
-    <h1 style="color:red;">PROGRAM WORKING</h1>
+    <h2>🎤 Program</h2>
+    <p>Opening Speech</p>
+    <p>Dance</p>
+    <p>Music</p>
 </div>
 
 <!-- FOOD -->
-<div id="food" class="section active">
+<div id="food" class="section">
     <h2>🍽 Food Items</h2>
 
     <div class="food-container">
- <div class="food-card">
+
+        <div class="food-card">
             <img src="doo_kappa.jpg">
             <p>Do'o Kappa</p>
         </div>
@@ -178,7 +190,7 @@ iframe {
 </div>
 
 <!-- LOCATION -->
-<div id="location" class="section active">
+<div id="location" class="section">
     <h2>📍 Location</h2>
     <a href="https://maps.google.com/?q=Hotel+Nexotica+Banquet+Hall+Azara+Guwahati" target="_blank">
         <iframe src="https://maps.google.com/maps?q=Hotel+Nexotica+Banquet+Hall+Azara+Guwahati&output=embed"></iframe>
@@ -186,15 +198,7 @@ iframe {
 </div>
 
 <script>
-function showSection(id) {
-    alert("Clicked: " + id);
-}
-</script>
-
-</body>
-</html>
-
-<script>
+// SECTION SWITCH
 function showSection(id) {
     let sections = document.querySelectorAll(".section");
 
@@ -204,7 +208,6 @@ function showSection(id) {
 
     document.getElementById(id).classList.add("active");
 }
-
 
 // COUNTDOWN
 var countDate = new Date("May 1, 2026 16:00:00").getTime();
@@ -218,10 +221,10 @@ setInterval(function() {
     var minutes = Math.floor((distance % (1000*60*60))/(1000*60));
     var seconds = Math.floor((distance % (1000*60))/1000);
 
-    var countdown = document.getElementById("countdown");
-    if(countdown){
-        countdown.innerHTML =
-            days+"d "+hours+"h "+minutes+"m "+seconds+"s";
-    }
+    document.getElementById("countdown").innerHTML =
+        days+"d "+hours+"h "+minutes+"m "+seconds+"s";
 }, 1000);
 </script>
+
+</body>
+</html>
