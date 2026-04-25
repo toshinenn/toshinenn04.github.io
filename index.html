@@ -6,162 +6,139 @@
 <title>Garo Farewell 2026</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    scroll-behavior: smooth;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
 
-/* HERO */
-.hero {
-    height: 100vh;
-    background: url('cover.jpg') no-repeat center center/cover;
-    position: relative;
-}
+    body {
+        scroll-behavior: smooth;
+        background: #111;
+        color: white;
+        text-align: center;
+    }
 
-/* NAVBAR */
-.navbar {
-    position: absolute;
-    top: 20px;
-    width: 90%;
-    left: 5%;
-    display: flex;
-    justify-content: space-around;
-    background: rgba(0,0,0,0.4);
-    padding: 12px;
-    border-radius: 25px;
-    color: white;
-}
+    /* COVER */
+    .cover {
+        height: 100vh;
+        background: url('cover.jpg') no-repeat center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
 
-.navbar a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
+    .cover::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+    }
 
-/* CENTER BOX */
-.center-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(10px);
-    padding: 30px 50px;
-    border-radius: 20px;
-    color: white;
-    text-align: center;
-}
+    .cover-content {
+        position: relative;
+        z-index: 1;
+    }
 
-.center-box h1 {
-    margin: 0;
-    font-size: 2em;
-    color: gold;
-}
+    .cover h1 {
+        font-size: 3em;
+    }
 
-/* SECTIONS */
-section {
-    padding: 60px 20px;
-    text-align: center;
-    background: #111;
-    color: white;
-}
+    .cover p {
+        margin-top: 10px;
+        font-size: 1.2em;
+    }
 
-h2 {
-    color: gold;
-}
+    .btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        background: gold;
+        cursor: pointer;
+        border-radius: 20px;
+    }
 
-/* GALLERY */
-.gallery img {
-    width: 200px;
-    margin: 10px;
-    border-radius: 10px;
-}
+    section {
+        padding: 60px 20px;
+    }
 
-/* CARDS */
-.card {
-    background: #222;
-    padding: 15px;
-    margin: 10px auto;
-    border-radius: 10px;
-    width: 250px;
-}
+    h2 {
+        color: gold;
+        margin-bottom: 20px;
+    }
 
-/* FOOTER */
-.footer {
-    text-align: center;
-    padding: 15px;
-    background: black;
-    color: white;
-}
+    .box {
+        background: #222;
+        padding: 20px;
+        border-radius: 10px;
+        display: inline-block;
+        width: 80%;
+        max-width: 500px;
+    }
+
+    /* FOOD IMAGES */
+    .food img {
+        width: 200px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+
+    /* MAP */
+    iframe {
+        width: 90%;
+        height: 300px;
+        border-radius: 10px;
+        border: none;
+    }
+
 </style>
 </head>
 
 <body>
 
-<!-- FRONT PAGE -->
-<div class="hero" id="home">
-
-    <div class="navbar">
-        <a href="#program">Program</a>
-        <a href="#food">Food Items</a>
-        <a href="#location">Location</a>
-        <a href="#gallery">Gallery</a>
+<!-- COVER -->
+<div class="cover">
+    <div class="cover-content">
+        <h1>Garo Farewell 2026</h1>
+        <p>Write your message here 💛</p>
+        <a href="#program"><button class="btn">Enter</button></a>
     </div>
-
-    <div class="center-box">
-        <h1>🎓 Garo Farewell 2026</h1>
-        <p>🎉 A beautiful ending, a new beginning 🎉</p>
-    </div>
-
 </div>
 
 <!-- PROGRAM -->
 <section id="program">
     <h2>🎤 Program</h2>
-    <p>Welcome Speech</p>
-    <p>Cultural Dance</p>
-    <p>Songs & Performances</p>
-    <p>Farewell Speech</p>
-</section>
-
-<!-- FOOD -->
-<section id="food">
-    <h2>🍽️ Food Items</h2>
-    <p>Rice</p>
-    <p>Chicken Curry</p>
-    <p>Pork Dish</p>
-    <p>Vegetables</p>
-    <p>Dessert</p>
-</section>
-
-<!-- LOCATION -->
-<section id="location">
-    <h2>📍 Location</h2>
-    <p>Hotel Neexotica, Banquet Hall, Azara, Opp.Mountain Shadow, Guwahati, 781017</p>
-</section>
-
-<!-- GALLERY -->
-<section id="gallery">
-    <h2>📸 Memories</h2>
-    <div class="gallery">
-        <img src="photo1.jpg">
-        <img src="photo2.jpg">
-        <img src="photo3.jpg">
+    <div class="box">
+        <p>• Add your program here</p>
+        <p>• Dance</p>
+        <p>• Speech</p>
     </div>
 </section>
 
-<!-- MESSAGES -->
+<!-- FOOD -->
 <section>
-    <h2>💬 Messages</h2>
-    <div class="card">"Every ending has a new beginning ✨"</div>
-    <div class="card">"Memories that last forever ❤️"</div>
+    <h2>🍽 Food</h2>
+    <div class="food">
+        <img src="food1.jpg">
+        <img src="food2.jpg">
+    </div>
 </section>
 
-<!-- FOOTER -->
-<div class="footer">
-    © 2026 Garo Farewell | Made with ❤️
-</div>
+<!-- LOCATION -->
+<section>
+    <h2>📍 Location</h2>
+
+    <!-- Clickable map -->
+    <a href="https://maps.google.com/?q=YOUR_LOCATION" target="_blank">
+        <iframe 
+        src="https://maps.google.com/maps?q=YOUR_LOCATION&output=embed">
+        </iframe>
+    </a>
+
+</section>
 
 </body>
 </html>
