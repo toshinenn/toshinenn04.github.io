@@ -3,455 +3,260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ADBU A'chik Nokdang Farewell 2026</title>
+<title>A'chik Farewell 2026</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* {margin:0;padding:0;box-sizing:border-box;}
+body {font-family:'Segoe UI';background:black;color:white;overflow:hidden;}
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: black;
-    color: white;
-    overflow: hidden;
-}
-
-/* BACKGROUND COVER */
+/* COVER */
 .cover {
-    height: 100vh;
-    background-image: url('cover.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: brightness(0.75);
+    height:100vh;
+    background:url('cover.jpg') no-repeat center/cover;
+    filter:brightness(0.75);
 }
 
 /* NAVBAR */
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 14px 10px;
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(8px);
-    display: flex;
-    justify-content: center;
-    gap: 22px;
-    z-index: 100;
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:14px;
+    background:rgba(0,0,0,0.5);
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    z-index:100;
 }
-
 .navbar button {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 18px;
-    font-weight: 700;
-    cursor: pointer;
+    background:none;border:none;color:white;
+    font-size:16px;font-weight:bold;cursor:pointer;
 }
+.navbar button:hover {color:gold;}
 
-.navbar button:hover {
-    color: gold;
-}
-
-/* CENTER CARD */
+/* MAIN CARD */
 .main-card {
-    position: fixed;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70%;
-    max-width: 720px;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(8px);
-    padding: 28px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 0 25px rgba(0,0,0,0.8);
-    z-index: 10;
+    position:fixed;
+    top:45%;left:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(0,0,0,0.6);
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
 }
-
 .main-card h1 {
-    color: grey;
-    font-size: 34px;
-    margin-bottom: 12px;
-    text-shadow: 0 0 12px gold;
+    color:gold;font-size:28px;
+    text-shadow:0 0 10px gold;
 }
-
-.main-card p {
-    font-size: 22px;
-    color: white;
-}
-
-/* CONFETTI */
-#confetti {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 2000;
-}
+.main-card p {font-size:20px;}
 
 /* POPUP */
 .popup {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(6px);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    padding: 18px;
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(5px);
+    z-index:1000;
+    justify-content:center;
+    align-items:center;
 }
-
 .popup-box {
-    position: relative;
-    width: 92%;
-    max-width: 850px;
-    max-height: 78vh;
-    background: black;
-    border-radius: 20px;
-    padding: 28px;
-    color: white;
-    box-shadow: 0 0 25px rgba(0,0,0,0.9);
-    overflow: hidden;
+    background:black;
+    padding:25px;
+    border-radius:15px;
+    width:90%;
+    max-width:800px;
 }
-
 .popup-box h2 {
-    color: gold;
-    text-align: center;
-    font-size: 34px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 12px gold;
+    color:gold;text-align:center;
+    margin-bottom:15px;
 }
-
 .popup-content {
-    max-height: 55vh;
-    overflow-y: auto;
-    background: rgba(255,255,255,0.05);
-    padding: 22px;
-    border-radius: 14px;
-    font-size: 21px;
-    line-height: 1.9;
+    max-height:60vh;
+    overflow:auto;
+    background:rgba(255,255,255,0.05);
+    padding:20px;
+    border-radius:10px;
+    line-height:1.8;
 }
 
+/* CLOSE */
 .close-btn {
-    position: absolute;
-    top: 12px;
-    right: 15px;
-    background: #ff4b4b;
-    color: white;
-    border: none;
-    font-size: 34px;
-    width: 54px;
-    height: 54px;
-    border-radius: 14px;
-    cursor: pointer;
-}
-
-/* OKAMANI */
-.okamani-text {
-    text-align: justify;
-    font-family: Georgia, serif;
+    position:absolute;
+    top:10px;right:15px;
+    background:red;color:white;
+    border:none;font-size:25px;
+    padding:5px 12px;
 }
 
 /* FOOD STACK */
 .food-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
 }
-
 .food-card {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 12px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:#1a1a1a;
+    padding:10px;
+    border-radius:10px;
 }
-
 .food-card img {
-    width: 150px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 12px;
+    width:140px;height:100px;
+    object-fit:cover;
+    border-radius:10px;
 }
-
 .food-card p {
-    color: gold;
-    font-size: 23px;
-    font-weight: 600;
+    color:gold;
+    font-size:18px;
 }
 
-/* LOCATION */
-.map-box iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
-    border-radius: 12px;
-}
-
-.address {
-    text-align: center;
-    margin-top: 16px;
-    font-size: 20px;
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-    .navbar {
-        gap: 10px;
-        padding: 12px 4px;
-    }
-
-    .navbar button {
-        font-size: 14px;
-    }
-
-    .main-card {
-        width: 85%;
-        padding: 22px;
-    }
-
-    .main-card h1 {
-        font-size: 24px;
-    }
-
-    .main-card p {
-        font-size: 18px;
-    }
-
-    .popup-box {
-        width: 95%;
-        padding: 20px;
-    }
-
-    .popup-box h2 {
-        font-size: 27px;
-    }
-
-    .popup-content {
-        font-size: 18px;
-        line-height: 1.8;
-    }
-
-    .food-card {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .food-card img {
-        width: 100%;
-        height: 180px;
-    }
+/* MAP */
+iframe {
+    width:100%;
+    height:250px;
+    border:none;
+    border-radius:10px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- BACKGROUND -->
 <div class="cover"></div>
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <button onclick="openPopup('okamaniPopup')">Okamani Chitti</button>
-    <button onclick="openPopup('programPopup')">Program</button>
-    <button onclick="openPopup('foodPopup')">Food Items</button>
-    <button onclick="openPopup('locationPopup')">Location</button>
+<button onclick="openPopup('okamani')">Okamani Chitti</button>
+<button onclick="openPopup('program')">Program</button>
+<button onclick="openPopup('food')">Food</button>
+<button onclick="openPopup('location')">Location</button>
 </div>
 
-<!-- MAIN COVER CARD -->
+<!-- MAIN CARD -->
 <div class="main-card">
-    <h1>ADBU A'chik Nokdang Farewell 2026</h1>
-    <p id="countdown">Loading...</p>
+<h1>A'chik Farewell 2026</h1>
+<p id="countdown"></p>
 </div>
 
-<canvas id="confetti"></canvas>
+<!-- OKAMANI -->
+<div id="okamani" class="popup">
+<div class="popup-box">
+<button class="close-btn" onclick="closePopup('okamani')">×</button>
+<h2>Okamani Chitti</h2>
 
-<!-- OKAMANI POPUP -->
-<div id="okamaniPopup" class="popup">
-    <div class="popup-box">
-        <button class="close-btn" onclick="closePopup('okamaniPopup')">×</button>
-        <h2>Okamani Chitti</h2>
-
-        <div class="popup-content okamani-text">
-            <p>
-               <p>
-                   Mande ra'ako mana kragipa chingni kasara adatang abitangrang chinga nasimangko Farewell programona kusi ongan baksa bonkamgipa grongrikaniko daknagita  rebaenggipa 1st May, 2026 o rebapachina mol'molatenga.
-                   <br><br>
-                    Sakantikon niksona kusi ong'soenga. 
-                   <br><br>
-                    Nasongni Ka'sara Junior rang.
-               </p>
-        </div>
-    </div>
+<div class="popup-content">
+<p>
+Mande ra'ako mana kragipa chingni kasara adatang abitangrang chinga nasimangko Farewell programona kusi ongan baksa bonkamgipa grongrikaniko daknagita rebaenggipa 1st May, 2026 o rebapachina mol'molatenga.
+<br><br>
+Sakantikon niksona kusi ong'soenga.
+<br><br>
+Nasongni Ka'sara Junior rang.
+</p>
 </div>
 
-<!-- PROGRAM POPUP -->
-<div id="programPopup" class="popup">
-    <div class="popup-box">
-        <button class="close-btn" onclick="closePopup('programPopup')">×</button>
-        <h2>Program Schedule</h2>
-
-        <div class="popup-content">
-            <p>1. Welcome Address</p>
-            <p>2. Opening Prayer</p>
-            <p>3. Welcome Speech</p>
-            <p>4. Welcome Song</p>
-        </div>
-    </div>
+</div>
 </div>
 
-<!-- FOOD POPUP -->
-<div id="foodPopup" class="popup">
-    <div class="popup-box">
-        <button class="close-btn" onclick="closePopup('foodPopup')">×</button>
-        <h2>Food Items</h2>
+<!-- PROGRAM -->
+<div id="program" class="popup">
+<div class="popup-box">
+<button class="close-btn" onclick="closePopup('program')">×</button>
+<h2>Program</h2>
 
-        <div class="popup-content">
-            <div class="food-stack">
-
-                <div class="food-card">
-                    <img src="doo_kappa.jpg">
-                    <p>Do'o Kappa</p>
-                </div>
-
-                <div class="food-card">
-                   <img src="chilli_chicken.jpg">
-                   <p>Chilli Chicken</p>
-                </div>
-
-                <div class="food-card">
-                    <img src="food2.jpg">
-                    <p>Wak Tangsek Pura</p>
-                </div>
-
-                <div class="food-card">
-                    <img src="gominda_wak.jpg">
-                    <p>Gominda Wak</p>
-                </div>
-
-                <div class="food-card">
-                    <img src="dochi_rita.jpg">
-                    <p>Do'chi Rita</p>
-                </div>
-
-                <div class="food-card">
-                    <img src="dal.jpg">
-                    <p>Dal</p>
-                </div>
-
-                <div class="food-card">
-                    <img src="mi.jpg">
-                    <p>Mi</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
+<div class="popup-content">
+<p>1. Welcome Address</p>
+<p>2. Opening Prayer</p>
+<p>3. Cultural Program</p>
+<p>4. Dinner</p>
 </div>
 
-<!-- LOCATION POPUP -->
-<div id="locationPopup" class="popup">
-    <div class="popup-box">
-        <button class="close-btn" onclick="closePopup('locationPopup')">×</button>
-        <h2>Location</h2>
+</div>
+</div>
 
-        <div class="popup-content">
-            <div class="map-box">
-                <a href="https://maps.google.com/?q=Hotel+Neexotica+Banquet+Hall+Azara+Guwahati" target="_blank">
-                    <iframe src="https://maps.google.com/maps?q=Hotel+Neexotica+Banquet+Hall+Azara+Guwahati&output=embed"></iframe>
-                </a>
-            </div>
+<!-- FOOD -->
+<div id="food" class="popup">
+<div class="popup-box">
+<button class="close-btn" onclick="closePopup('food')">×</button>
+<h2>Food Items</h2>
 
-            <p class="address">
-                Hotel Neexotica,<br>
-                Banquet Hall,<br>
-                Azara, Opp. Mountain Shadow,<br>
-                Guwahati - 781017.
-            </p>
-        </div>
-    </div>
+<div class="popup-content">
+<div class="food-stack">
+
+<div class="food-card">
+<img src="doo_kappa.jpg"><p>Do'o Kappa</p>
+</div>
+
+<div class="food-card">
+<img src="wak_tangsek_pura.jpg"><p>Wak Tangsek Pura</p>
+</div>
+
+<div class="food-card">
+<img src="chilli_chicken.jpg"><p>Chilli Chicken</p>
+</div>
+
+<div class="food-card">
+<img src="gominda_wak.jpg"><p>Gominda Wak</p>
+</div>
+
+<div class="food-card">
+<img src="dochi_rita.jpg"><p>Do'chi Rita</p>
+</div>
+
+<div class="food-card">
+<img src="dal.jpg"><p>Dal</p>
+</div>
+
+<div class="food-card">
+<img src="mi.jpg"><p>Mi</p>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- LOCATION -->
+<div id="location" class="popup">
+<div class="popup-box">
+<button class="close-btn" onclick="closePopup('location')">×</button>
+<h2>Location</h2>
+
+<div class="popup-content">
+<a href="https://maps.google.com/?q=Hotel+Nexotica+Banquet+Hall+Azara+Guwahati" target="_blank">
+<iframe src="https://maps.google.com/maps?q=Hotel+Nexotica+Banquet+Hall+Azara+Guwahati&output=embed"></iframe>
+</a>
+<p style="margin-top:10px;">
+Hotel Nexotica, Banquet Hall,<br>
+Azara, Opp. Mountain Shadow,<br>
+Guwahati - 781017
+</p>
+</div>
+
+</div>
 </div>
 
 <script>
-/* POPUP */
-function openPopup(id) {
-    document.getElementById(id).style.display = "flex";
-}
-
-function closePopup(id) {
-    document.getElementById(id).style.display = "none";
-}
+function openPopup(id){document.getElementById(id).style.display="flex";}
+function closePopup(id){document.getElementById(id).style.display="none";}
 
 /* COUNTDOWN */
-var countDate = new Date("May 1, 2026 02:00:00").getTime();
-
-var timer = setInterval(function() {
-    var now = new Date().getTime();
-    var distance = countDate - now;
-
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    if (distance > 0) {
-        document.getElementById("countdown").innerHTML =
-            days + "d " + hours + "h " + minutes + "m " + seconds + "s";
-    } else {
-        clearInterval(timer);
-        document.getElementById("countdown").innerHTML = "🎉 IT'S TIME 🎉";
-        startConfetti();
-    }
-}, 1000);
-
-/* CONFETTI */
-function startConfetti() {
-    var canvas = document.getElementById("confetti");
-    var ctx = canvas.getContext("2d");
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    var pieces = [];
-
-    for (let i = 0; i < 130; i++) {
-        pieces.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            size: Math.random() * 7 + 3,
-            speed: Math.random() * 3 + 2,
-            color: "hsl(" + Math.random() * 360 + ",100%,60%)"
-        });
-    }
-
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        pieces.forEach(p => {
-            p.y += p.speed;
-
-            if (p.y > canvas.height) {
-                p.y = -10;
-                p.x = Math.random() * canvas.width;
-            }
-
-            ctx.fillStyle = p.color;
-            ctx.fillRect(p.x, p.y, p.size, p.size);
-        });
-
-        requestAnimationFrame(draw);
-    }
-
-    draw();
-}
+var countDate=new Date("May 1, 2026 16:00:00").getTime();
+setInterval(function(){
+var now=new Date().getTime();
+var d=countDate-now;
+var days=Math.floor(d/(1000*60*60*24));
+var hours=Math.floor((d%(1000*60*60*24))/(1000*60*60));
+var minutes=Math.floor((d%(1000*60*60))/(1000*60));
+var seconds=Math.floor((d%(1000*60))/1000);
+document.getElementById("countdown").innerHTML=
+days+"d "+hours+"h "+minutes+"m "+seconds+"s";
+},1000);
 </script>
 
 </body>
 </html>
-
